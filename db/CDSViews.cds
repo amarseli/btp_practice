@@ -64,10 +64,10 @@ context CDSViews {
         texts.DESCRIPTION as![Description],
         (
             select from transaction.poitems as a{
-                SUM(a.GROSS_AMOUNT) as SUM
+                round(SUM(a.GROSS_AMOUNT),2) as SUM
             }
             where a.PRODUCT_GUID.NODE_KEY = prod.NODE_KEY
-        ) as PO_SUM
+        ) as PO_SUM: Decimal(10, 2)
     };
 
     define view ProductView as select from master.product
@@ -96,7 +96,7 @@ context CDSViews {
             ProductId,
             Country,
             PO_ORDERS.CurrencyCode as![CurrencyCode],
-            sum(PO_ORDERS.GrossAmount) as ![POGrossAmount]
+            round(sum(PO_ORDERS.GrossAmount),2) as ![POGrossAmount]: Decimal(10, 2)
         }
         group by ProductId,Country,PO_ORDERS.CurrencyCode
 
