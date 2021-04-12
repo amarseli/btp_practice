@@ -57,13 +57,13 @@ context master {
         SUPPLIER_GUID: Association to master.businesspartner;
         TAX_TARIF_CODE: Integer;
         MEASURE_UNIT: String(2);
-        WEIGHT_MEASURE	: Decimal(5,2);
+        WEIGHT_MEASURE	: Decimal;
         WEIGHT_UNIT: String(2);
         CURRENCY_CODE:String(4);
         PRICE: Decimal(15,2);
-        WIDTH:Decimal(5,2);	
-        DEPTH:Decimal(5,2);	
-        HEIGHT:	Decimal(5,2);
+        WIDTH:Decimal;	
+        DEPTH:Decimal;	
+        HEIGHT:	Decimal;
         DIM_UNIT:String(2);
 
     }
