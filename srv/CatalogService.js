@@ -1,7 +1,7 @@
 module.exports = cds.service.impl( async function(){
 
     const {
-        EmployeeSet
+        EmployeeSet, POs
     } = this.entities;
 
     this.before('UPDATE', EmployeeSet, (req,res) => {
@@ -18,7 +18,7 @@ module.exports = cds.service.impl( async function(){
             console.log("Your Purchase order with ID ---> " + ID + " will be Boosted");
             const tx = cds.tx(req);
             await tx.update(POs).with({
-                GROSS_AMOUNT: round({ '+=' : 20000 },2), NOTE: "Boosted!!"
+                GROSS_AMOUNT: { '+=' : 20000 }, NOTE: "Boosted!!"
             });
             return {};
 
