@@ -21,6 +21,11 @@ service CatalogService@(path:'/CatalogService') {
         action boost();
     }
 
+    annotate POs with {
+        GROSS_AMOUNT @title: '{i18n>GROSS_AMOUNT}';
+    };
+    
+
     entity POItems @( title : '{i18n>poItems}' )
     as projection on transaction.poitems{
         *,
