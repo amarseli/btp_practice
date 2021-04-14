@@ -19,7 +19,7 @@ module.exports = cds.service.impl( async function(){
             const tx = cds.tx(req);
             await tx.update(POs).with({
                 GROSS_AMOUNT: { '+=' : 20000 }, NOTE: "Boosted!!"
-            });
+            }).where(ID);
             return {};
 
         } catch (error) {
