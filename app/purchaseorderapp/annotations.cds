@@ -1,6 +1,39 @@
 using { CatalogService } from '../../srv/CatalogService';
 
 //First Screen with Search Fields and Table Columns
+annotate CatalogService.POs with {
+    PARTNER_GUID@(
+        Common:{
+            Text: PARTNER_GUID.COMPANY_NAME
+        },
+        ValueList.entity: CatalogService.BPSet
+    )
+};
+
+@cds.odata.valuelist
+annotate CatalogService.BPSet with @(
+    UI.Identification:[{
+        $Type : 'UI.DataField',
+        Value : COMPANY_NAME,
+    }]
+);
+
+annotate CatalogService.POItems with {
+    PRODUCT_GUID@(
+        Common:{
+            Text: PRODUCT_GUID.DESCRIPTION
+        },
+        ValueList.entity: CatalogService.ProductSet
+    )
+};
+
+@cds.odata.valuelist
+annotate CatalogService.ProductSet with @(
+    UI.Identification:[{
+        $Type : 'UI.DataField',
+        Value : DESCRIPTION,
+    }]
+);
 
 annotate CatalogService.POs with @(
     UI: {
@@ -8,7 +41,7 @@ annotate CatalogService.POs with @(
             PO_ID,
             GROSS_AMOUNT,
             LIFECYCLE_STATUS,
-            CURRENCY_CODE
+            Currency.code
         ],
         LineItem  : [
             {
@@ -27,7 +60,7 @@ annotate CatalogService.POs with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : CURRENCY_CODE,
+                Value : Currency.code,
             },
             {
                 $Type : 'UI.DataField',
@@ -106,7 +139,7 @@ annotate CatalogService.POs with @(
                 },
                 {
                     $Type : 'UI.DataField',
-                    Value : CURRENCY_CODE,
+                    Value : Currency.code,
                 },
                 {
                     $Type : 'UI.DataField',
@@ -146,7 +179,7 @@ annotate CatalogService.POItems with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : CURRENCY_CODE,
+                Value : Currency.code,
             },
         ],
 
@@ -156,7 +189,7 @@ annotate CatalogService.POItems with @(
             TypeNamePlural : 'PO Items',
             Title : {
                 $Type : 'UI.DataField',
-                Value : NODE_KEY,
+                Value : ID,
             },
             Description: {
                 $Type : 'UI.DataField',
@@ -200,7 +233,7 @@ annotate CatalogService.POItems with @(
                 },
                 {
                     $Type : 'UI.DataField',
-                    Value : CURRENCY_CODE,
+                    Value : Currency.code,
                 },
             ],
         },
