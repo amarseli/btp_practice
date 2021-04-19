@@ -1,5 +1,6 @@
 { 
   "welcomeFile": "purchaseorderapp/webapp/", 
+  "authenticationMethod": "none",
   "routes": [ 
     { 
       "source": "^/purchaseorderapp/webapp/(.*)$", 
@@ -11,4 +12,4 @@
       "destination": "srv-api" 
     } 
   ] 
-} 
+}
