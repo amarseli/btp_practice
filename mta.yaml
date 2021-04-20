@@ -16,6 +16,7 @@ modules:
     path: gen/srv
     requires:
       - name: 12capm-db
+      - name: 12capm-xsuaa
     provides:
       - name: srv-api
         properties:
@@ -30,8 +31,8 @@ modules:
           name: srv-api
           strictSSL: true
           forwardAuthToken: true
-          url: ~{srv-url}
-          
+          url: '~{srv-url}'
+      - name: 12capm-xsuaa
   - name: 12capm-db-deployer
     type: hdb
     path: gen/db
@@ -47,3 +48,10 @@ resources:
       service-plan: hdi-shared
     properties:
       hdi-service-name: '${service-name}'
+  - name: 12capm-xsuaa
+    type: org.cloudfoundry.managed-service
+    description: Automatically created by CF
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
