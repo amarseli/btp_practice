@@ -39,14 +39,4 @@
             ]
         }
     ]
-    ,
-    "role-collections": [
-        {
-            "name": "app_Administrator",
-            "description": "Administrative access",
-            "role-template-references": [
-                "$XSAPPNAME.Admin"
-            ]
-        }
-    ]
 }

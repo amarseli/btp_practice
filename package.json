@@ -63,11 +63,7 @@
         }
       },
       "db": {
-        "kind": "sqlite",
-        "model": "*",
-        "credentials": {
-          "database": "anubhav.db"
-        }
+        "kind": "hana"
       }
     }
   },
