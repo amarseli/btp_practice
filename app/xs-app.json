@@ -1,13 +1,13 @@
 { 
-  "welcomeFile": "purchaseorderapp/webapp/", 
+  "welcomeFile": "compinvenreconcileapp/webapp/", 
   "authenticationMethod": "route",
   "routes": [ 
     { 
-      "source": "^/purchaseorderapp/webapp/(.*)$", 
+      "source": "^/compinvenreconcileapp/webapp/(.*)$", 
       "target": "$1",
       "csrfProtection": false,
       "authenticationType": "xsuaa",
-      "localDir": "purchaseorderapp/webapp/" 
+      "localDir": "compinvenreconcileapp/webapp/" 
     }, 
     { 
       "source": "^/(.*)", 

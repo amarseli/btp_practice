@@ -1,7 +1,7 @@
 {
-    "_version": "1.31.0",
+    "_version": "1.29.0",
     "sap.app": {
-        "id": "anubhav.app.purchaseorderapp",
+        "id": "globalscc.app.compinvenreconcileapp",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -11,7 +11,7 @@
         "description": "{{appDescription}}",
         "dataSources": {
             "mainService": {
-                "uri": "/CatalogService/",
+                "uri": "/CompInvenService/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "4.0"
@@ -26,15 +26,15 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "anubhav-app-purchaseorderapp-inbound": {
+                "globalscc-app-compinvenreconcileapp-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "PurchaseOrder",
+                    "semanticObject": "ComponentInventory",
                     "action": "manage",
-                    "title": "Manage Purchase Order",
-                    "subTitle": "anubhavtrainings.com",
+                    "title": "Manage Component Inventory",
+                    "subTitle": "SBN Extended Component Inventory",
                     "icon": ""
                 }
             }
@@ -89,42 +89,41 @@
             "routes": [
                 {
                     "pattern": ":?query:",
-                    "name": "POsList",
+                    "name": "CompInvenItems",
                     "target": [
-                        "POsList"
+                        "CompInvenItems"
                     ]
                 },
                 {
-                    "pattern": "POs({key}):?query:",
-                    "name": "POsObjectPage",
+                    "pattern": "CompInvens({key}):?query:",
+                    "name": "CompInvensObjectPage",
                     "target": [
-                        "POsList",
-                        "POsObjectPage"
+                        "CompInvenItems",
+                        "CompInvensObjectPage"
                     ]
                 },
                 {
-                    "pattern": "POs({key})/Items({key2}):?query:",
-                    "name": "POItemsObjectPage",
+                    "pattern": "CompInvens({key})/Items({key2}):?query:",
+                    "name": "CompInvenItemsObjectPage",
                     "target": [
-                        "POsList",
-                        "POsObjectPage",
-                        "POItemsObjectPage"
+                        "CompInvenItems",
+                        "CompInvensObjectPage"
                     ]
                 }
             ],
             "targets": {
-                "POsList": {
+                "CompInvenItems": {
                     "type": "Component",
-                    "id": "POsList",
+                    "id": "CompInvenItems",
                     "name": "sap.fe.templates.ListReport",
                     "options": {
                         "settings": {
-                            "entitySet": "POs",
+                            "entitySet": "CompInvens",
                             "variantManagement": "Page",
                             "navigation": {
-                                "POs": {
+                                "CompInvens": {
                                     "detail": {
-                                        "route": "POsObjectPage"
+                                        "route": "CompInvensObjectPage"
                                     }
                                 }
                             },
@@ -142,17 +141,17 @@
                     "controlAggregation": "beginColumnPages",
                     "contextPattern": ""
                 },
-                "POsObjectPage": {
+                "CompInvensObjectPage": {
                     "type": "Component",
-                    "id": "POsObjectPage",
+                    "id": "CompInvensObjectPage",
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {
-                            "entitySet": "POs",
+                            "entitySet": "CompInvens",
                             "navigation": {
                                 "Items": {
                                     "detail": {
-                                        "route": "POItemsObjectPage"
+                                        "route": "CompInvenItemsObjectPage"
                                     }
                                 }
                             },
@@ -160,21 +159,21 @@
                         }
                     },
                     "controlAggregation": "midColumnPages",
-                    "contextPattern": "/POs({key})"
+                    "contextPattern": "/CompInvens({key})"
                 },
-                "POItemsObjectPage": {
+                "CompInvenItemsObjectPage": {
                     "type": "Component",
-                    "id": "POItemsObjectPage",
+                    "id": "CompInvenItemsObjectPage",
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {
-                            "entitySet": "POItems",
+                            "entitySet": "CompInvenItems",
                             "navigation": {},
                             "content": {}
                         }
                     },
                     "controlAggregation": "endColumnPages",
-                    "contextPattern": "/POs({key})/Items({key2})"
+                    "contextPattern": "/CompInvens({key})/Items({key2})"
                 }
             },
             "config": {

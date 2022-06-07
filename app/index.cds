@@ -1,1 +1,1 @@
-using from './purchaseorderapp/annotations';
+using from './compinvenreconcileapp/annotations';

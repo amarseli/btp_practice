@@ -1,5 +1,5 @@
 {
-  "name": "12capm",
+  "name": "scc_ext_compinventory_reconcile",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -37,7 +37,7 @@
         "[development]": {
           "strategy": "mock",
           "users": {
-            "anubhav": {
+            "amarseli": { 
               "roles": [
                 "Admin",
                 "Viewer"
@@ -48,7 +48,7 @@
                 ]
               }
             },
-            "ananya": {
+            "chandra": {
               "roles": [
                 "Viewer"
               ],

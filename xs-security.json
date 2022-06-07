@@ -1,41 +1,41 @@
 {
-    "xsappname": "12capm",
+    "xsappname": "scc_ext_compinventory_reconcile",
     "tenant-mode": "dedicated",
     "scopes": [
         {
-            "name": "$XSAPPNAME.Viewer",
-            "description": "Viewer"
+            "name": "$XSAPPNAME.SupplierViewer",
+            "description": "SupplierViewer"
         },
         {
-            "name": "$XSAPPNAME.Admin",
-            "description": "Administrator"
+            "name": "$XSAPPNAME.SupplierAdmin",
+            "description": "SupplierAdministrator"
         }
     ],
     "attributes": [
         {
-            "name": "BankName",
-            "description": "BankName",
+            "name": "ANID",
+            "description": "ANID",
             "valueType": "string"
         }
     ],
     "role-templates": [
         {
-            "name": "Viewer",
-            "description": "Viewer",
+            "name": "SupplierViewer",
+            "description": "SupplierViewer",
             "attribute-references": [
                 {
-                    "name": "BankName"
+                    "name": "ANID"
                 }
             ],
             "scope-references": [
-                "$XSAPPNAME.Viewer"
+                "$XSAPPNAME.SupplierViewer"
             ]
         },
         {
-            "name": "Admin",
-            "description": "Administrator",
+            "name": "SupplierAdmin",
+            "description": "SupplierAdministrator",
             "scope-references": [
-                "$XSAPPNAME.Admin"
+                "$XSAPPNAME.SupplierAdmin"
             ]
         }
     ]
